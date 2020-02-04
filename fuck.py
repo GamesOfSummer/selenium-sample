@@ -15,78 +15,47 @@ binary = FirefoxBinary('C:\\Users\\summe\\AppData\\Local\\Mozilla Firefox\\firef
 
 
 options = Options()
-options.add_argument('-headless')
+#options.add_argument('-headless')
 
 
-#browser = webdriver.Firefox(capabilities=cap, executable_path="C:/WebDriver/bin/geckodriver.exe")
 
-browser = Firefox(firefox_binary=binary, executable_path="C:\\WebDriver\\bin\\geckodriver.exe", firefox_options=options, capabilities=cap)
-
-browser.get('http://google.com/')
-browser.quit()
+driver = Firefox(firefox_binary=binary, executable_path="C:\\WebDriver\\bin\\geckodriver.exe", firefox_options=options, capabilities=cap)
 
 
 
 
+driver.get("https://www.codeauthority.com/")
 
-'''
+#element = driver.find_elements_by_name("username")
+#print (element)
+#print("First element:", element[0])
 
-#Simple assignment
-from selenium.webdriver import Firefox
+print ("\n\n")
 
-
-
-Firefox(executable_path='C:/WebDriver/bin/geckodriver.exe')
-
-
-
-driver = Firefox()
-
-from selenium import webdriver
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+driver.implicitly_wait(5)
 
 
 
-cap = DesiredCapabilities().FIREFOX
-cap["marionette"] = False
+#driver.find_element_by_xpath("/html/body/div[6]/div[5]/table/tbody/tr/td/div[2]/div[4]/form/div/div[1]/div[2]/input").send_keys("ve");
 
 
-Firefox(executable_path='C:/WebDriver/bin/geckodriver.exe')
-
-driver = Firefox()
-
-
-driver.get("http://www.neopets.com/dome/fight.phtml")
-
-element = driver.find_element_by_id("nextstep").click()
-
-
-#http://www.neopets.com/dome/arena.phtml
-
-
-#element = driver.find_element_by_id("start")
-
-print(element)
+#driver.find_element_by_xpath("/html/body/div[6]/div[5]/table/tbody/tr/td/div[2]/div[4]/form/input[2]").click()
 
 
 
-# Now click on button
-#driver.find_element_by_id('start').click()
 
-print('End')
-
-WebDriverWait(driver, timeout=3)
-
-browser.quit()
-
-#Or use the context manager
-#from selenium.webdriver import Firefox
+print('LOADING')
+driver.implicitly_wait(5)
 
 
+for entry in driver.get_log('browser'):
+    print (entry)
 
-#mvn test -Dwebdriver.gecko.driver=C:WebDriver/bin/
 
-#with Firefox() as driver:
-   #your code inside this indent
-   
-   '''
+print('End!')
+print('End!')
+
+
+
+#driver.quit()
+
