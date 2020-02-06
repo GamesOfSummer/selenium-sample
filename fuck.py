@@ -24,14 +24,13 @@ driver = Firefox(firefox_binary=binary, executable_path="C:\\WebDriver\\bin\\gec
 
 
 
-driver.get("https://www.codeauthority.com/")
+driver.get("https://www.reddit.com/")
 
 #element = driver.find_elements_by_name("username")
 #print (element)
 #print("First element:", element[0])
 
 print ("\n\n")
-
 driver.implicitly_wait(5)
 
 
@@ -44,8 +43,11 @@ driver.implicitly_wait(5)
 
 
 
-print('LOADING')
-driver.implicitly_wait(5)
+
+
+
+print (driver.get_log('browser'))
+print ("\n\n")
 
 
 for entry in driver.get_log('browser'):
